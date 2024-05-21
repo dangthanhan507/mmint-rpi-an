@@ -12,10 +12,11 @@ services:
     # necessary for two docker containers to be able to talk to each other in ROS2 
     network_mode: "host" # this 
     volumes:
-      - ./hw3_v2/HW3_codes_python:/root/hw3
+      - ./catkin_ws:/root/mmint-rpi-an/catkin_ws
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       # specify the display drivers
       - DISPLAY=$DISPLAY
       # if you want to specify a ros domain id (or other environment parameters) this is a good place
-      # - ROS_DOMAIN_ID=2 
+      # - ROS_DOMAIN_ID=2
+      - ROS_MASTER_URI=http://192.168.1.128:11311
